@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cricket Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-card">
+    <h1>Bat Ball Stamp Game</h1>
+    <p class="subtitle">Choose your move and see if you beat the computer.</p>
+
+    <div class="container">
+      <button class="btn" onclick="playGame('Bat')">Bat</button>
+      <button class="btn" onclick="playGame('Ball')">Ball</button>
+      <button class="btn" onclick="playGame('Stamp')">Stamp</button>
+    </div>
+
+    <div class="result-panel">
+      <p id="statusText">Pick a move to start the game.</p>
+      <p id="resultText" class="result">Your result will appear here.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
