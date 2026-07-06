@@ -17,6 +17,21 @@
       <button class="btn" onclick="playGame('Stamp')">Stamp</button>
     </div>
 
+    <div class="scoreboard" aria-live="polite">
+      <div class="score-box">
+        <span>Wins</span>
+        <strong id="winsCount">0</strong>
+      </div>
+      <div class="score-box">
+        <span>Losses</span>
+        <strong id="lossesCount">0</strong>
+      </div>
+      <div class="score-box">
+        <span>Ties</span>
+        <strong id="tiesCount">0</strong>
+      </div>
+    </div>
+
     <div class="result-panel">
       <p id="statusText">Pick a move to start the game.</p>
       <p id="resultText" class="result">Your result will appear here.</p>
