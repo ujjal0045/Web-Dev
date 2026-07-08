@@ -55,6 +55,10 @@ h1 {
   box-shadow: 0 12px 24px rgba(47, 125, 224, 0.35);
 }
 
+.reset-btn {
+  background: linear-gradient(135deg, #f14d6b, #ff7777);
+}
+
 .scoreboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
