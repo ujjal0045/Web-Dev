@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Stone Paper Scissors</title>
+</head>
+<body>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <main class="container">
+    <header class="hero">
+      <span class="hero-badge">🎮 Arcade Challenge</span>
+      <h1 class="header">Stone Paper Scissors</h1>
+      <p class="subtitle">Pick your move, challenge the computer, and build your streak.</p>
+    </header>
+
+    <section class="under_container">
+      <div class="section-title">
+        <h2>Choose your move</h2>
+        <p>Select one of the cards below to start.</p>
+      </div>
+
+      <div class="choise">
+        <button class="btn stone" type="button" data-move="Stone"><span class="icon">🪨</span>Stone</button>
+        <button class="btn paper" type="button" data-move="Paper"><span class="icon">📄</span>Paper</button>
+        <button class="btn scissor" type="button" data-move="Scissor"><span class="icon">✂️</span>Scissor</button>
+      </div>
+
+      <div class="result_details">
+        <article class="Winning-Detail card">
+          <div class="card-heading">
+            <h2>Game Status</h2>
+            <span class="status-pill">Live</span>
+          </div>
+          <p id="user-move">Your move: —</p>
+          <p id="computer_move">Computer move: —</p>
+          <p id="result">Winner: —</p>
+        </article>
+
+        <article class="score_detail card">
+          <div class="card-heading">
+            <h2>Scoreboard</h2>
+            <span class="score-pill">Play on</span>
+          </div>
+          <p id="score" class="score-text">Win: 0 • Tie: 0 • Lose: 0</p>
+          <button class="reset-btn" type="button" onclick="resetScore()">Reset score</button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
