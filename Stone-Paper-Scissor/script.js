@@ -1,61 +1,81 @@
-const buttons = document.querySelectorAll('.btn');
-const userMoveDisplay = document.getElementById('user-move');
-const computerMoveDisplay = document.getElementById('computer_move');
-const resultDisplay = document.getElementById('result');
-const scoreDisplay = document.getElementById('score');
-
-let score = { win: 0, tie: 0, lose: 0 };
-
-const moves = [
-  { name: 'Stone', emoji: '🪨' },
-  { name: 'Paper', emoji: '📄' },
-  { name: 'Scissor', emoji: '✂️' }
-];
-
-function updateScoreboard() {
-  scoreDisplay.textContent = `Win: ${score.win} • Tie: ${score.tie} • Lose: ${score.lose}`;
+function play(user){
+  const ComputerMove = generateComputerMove();
+  const result = FindResult(user,ComputerMove);
+  displayResult(user,ComputerMove,result);
 }
-
-function resetScore() {
-  score = { win: 0, tie: 0, lose: 0 };
-  updateScoreboard();
-  userMoveDisplay.textContent = 'Your move: —';
-  computerMoveDisplay.textContent = 'Computer move: —';
-  resultDisplay.textContent = 'Winner: —';
-}
-
-function playRound(userChoice) {
-  const computerChoice = moves[Math.floor(Math.random() * moves.length)];
-  let outcome = 'Tie!';
-
-  if (
-    (userChoice.name === 'Stone' && computerChoice.name === 'Scissor') ||
-    (userChoice.name === 'Paper' && computerChoice.name === 'Stone') ||
-    (userChoice.name === 'Scissor' && computerChoice.name === 'Paper')
-  ) {
-    outcome = 'You win!';
-    score.win += 1;
-  } else if (userChoice.name === computerChoice.name) {
-    outcome = 'Tie!';
-    score.tie += 1;
-  } else {
-    outcome = 'Computer wins!';
-    score.lose += 1;
+let scoreSet = localStorage.getItem('score');
+let score = JSON.parse(scoreSet) || {
+  won: 0,
+  lose: 0,
+  tie:0
+};
+score.displayScore = function () {
+  return `Win : ${score.won} • Tie: ${score.tie} • Lose: ${score.lose}`;
+};
+// Generate computer Move 
+function generateComputerMove(){
+  let computer_move = Math.floor(Math.random()*3);
+  console.log(computer_move);
+  if(computer_move === 0){
+    computer_move = 'Stone';
+  } else if(computer_move === 1){
+    computer_move = 'Paper';
+  }else {
+    computer_move = 'Scissor';
   }
-
-  userMoveDisplay.textContent = `Your move: ${userChoice.name} ${userChoice.emoji}`;
-  computerMoveDisplay.textContent = `Computer move: ${computerChoice.name} ${computerChoice.emoji}`;
-  resultDisplay.textContent = `Winner: ${outcome}`;
-  updateScoreboard();
+  console.log(computer_move);
+  return computer_move;
 }
 
-buttons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const userChoice = moves.find((move) => move.name === button.dataset.move);
-    if (userChoice) {
-      playRound(userChoice);
-    }
-  });
-});
+function FindResult(user, computer){
+  const u = user.toLowerCase();
+  const c = computer.toLowerCase();
+  let result;
+  if(u == c){
+    result = 'Its a Tie';
+    score.tie++;
+  } else if(u == 'stone' && c == 'scissor' || 
+    u == 'paper' && c == 'stone' || 
+    u == 'scissor' && c == 'paper'
+  ) {
+   result = 'User has Won';
+   score.won++;
+  } else{
+    result = 'Computer has win';
+    score.lose++;
+  }
+  localStorage.setItem('score',JSON.stringify(score));
+  return result;
+}
 
-updateScoreboard();
+// Final result printing
+function displayResult(user,computer,result){
+  document.querySelector('#user-move').textContent = `Your move: ${user}`;
+  document.querySelector('#computer_move').innerText = `Computer move: ${computer}`;
+  document.querySelector('#result').innerText = `Winning: ${result}`;
+  updateScoreDisplay();
+  console.log(user,computer,result);
+}
+
+
+function updateScoreDisplay() {
+  document.querySelector('#score').innerText = score.displayScore();
+}
+document.addEventListener('DOMContentLoaded', updateScoreDisplay);
+
+
+ function resetScore(){
+  score = {
+     won: 0,
+    lose: 0,
+    tie:0,
+  };
+  score.displayScore = function () {
+    return `win : ${score.won}, tie: ${score.tie}, lose: ${score.lose}`;
+  };
+  localStorage.setItem('score',JSON.stringify(score));
+  updateScoreDisplay();
+  document.querySelector('#user-move').textContent = `Your move: -`;
+  document.querySelector('#computer_move').innerText = `Computer move: -`;
+  document.querySelector('#result').innerText = `Winning: -`;
+}
