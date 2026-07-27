@@ -1,6 +1,7 @@
 let quizIndex = 0;
 const totalQuestions = quizData.length;
 let score=0;
+let answeredQuestions = new Array(quizData.length).fill(false);
 onload();
 
 function onload(){
@@ -24,14 +25,31 @@ function updateButtons() {
   }
 }
 
-function optionClicked(optionNumber) {
+
+// Answer function mein
+function optionClicked(button ,index) {
+  if (answeredQuestions[quizIndex]) {
+    return;
+  }
+  answeredQuestions[quizIndex]=true;
   const question = quizData[quizIndex];
-  if(optionNumber === question.correctAnswer){
+  if(answeredQuestions)
+  if(index === question.correctAnswer){
     score++;
+    document.querySelector("#score").textContent = score;
+    console.log('RIght');
+    button.classList.add('green');
+  } else{
+    console.log('wrong');
+     button.classList.add("red");
   }
 
-  
-  displayQuestion();
+
+  const buttons = document.querySelectorAll(".btn");
+
+    buttons.forEach(button => {
+        button.disabled = true;
+    });
 }
 
 
@@ -42,14 +60,11 @@ function displayNextQuestion(){
   displayQuestion();
 }
 
-function displayPreviousQuestion(){
-  const btn = document.querySelector('.previsiousQuestion');
-  if(quizIndex <= 0){
-    button.disabled = false;
-  } else{
-    quizIndex--;
-  }
-  displayQuestion();
+function displayPreviousQuestion() {
+    if (quizIndex > 0) {
+        quizIndex--;
+        displayQuestion();
+    }
 }
 
 function displayQuestion(){
@@ -87,7 +102,7 @@ function displayQuestion(){
 
 buttons.forEach((button, index) => {
   button.addEventListener("click", () => {
-    optionClicked(index);
+    optionClicked(button, index);
   });
 
 });

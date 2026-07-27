@@ -62,7 +62,7 @@ body {
 .btn{
   color: #1f2937;
   align-self: center;
-  padding: 12px 22px;
+  padding: 15px 25px;
   border: none;
   border-radius: 999px;
   font-weight: 600;
@@ -79,6 +79,7 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
   border: none;
+  border-radius: 999px;
 }
 
 .quiz-container button:hover {
@@ -92,6 +93,10 @@ body {
   flex-direction: row;
   justify-content: space-between;
   padding: 25px;
+}
+.nextQuestion{
+  background: blue !important;
+  color: white !important;
 }
 .Butn{
   width: 200px;
@@ -132,4 +137,13 @@ body {
     background: linear-gradient(to right,#7b2ff7,#3b82f6);
     border-radius: 20px;
     transition: width .3s ease;
+}
+
+.green{
+  background: green !important;
+  color: white !important;
+}
+.red{
+  background: red !important;
+  color: white !important;
 }
