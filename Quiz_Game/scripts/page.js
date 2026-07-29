@@ -1,5 +1,6 @@
 let quizIndex = 0;
 const totalQuestions = quizData.length;
+localStorage.setItem('totalQuestion',totalQuestions);
 let score=0;
 let answeredQuestions = new Array(quizData.length).fill(false);
 onload();
@@ -13,15 +14,20 @@ function onload(){
 function updateButtons() {
   const preBtn = document.querySelector('.previsiousQuestion');
   const Nextbtn = document.querySelector('.nextQuestion');
+  const resultbtn = document.querySelector('.FinalResult');
+
   if(quizIndex === 0){
     preBtn.style.display='none';
+
   } else{
     preBtn.style.display='block';
   }
   if(quizIndex=== quizData.length-1){
+    resultbtn.classList.remove("hidden");
     Nextbtn.style.display='none';
   } else{
     Nextbtn.style.display='block';
+    resultbtn.classList.add("hidden");
   }
 }
 
@@ -39,6 +45,7 @@ function optionClicked(button ,index) {
     document.querySelector("#score").textContent = score;
     console.log('RIght');
     button.classList.add('green');
+    localStorage.setItem('score',score);
   } else{
     console.log('wrong');
      button.classList.add("red");
@@ -96,8 +103,14 @@ function displayQuestion(){
     <div class="swap-questions">
       <button class="Butn previsiousQuestion" onclick="displayPreviousQuestion()">Previous</button>
       <button  class="Butn nextQuestion" onclick='displayNextQuestion()'>Next</button>
-    </div>
+      <button class="Butn FinalResult hidden" type="button" id="resultBtn">Result</button>
   `;
+  const resultBtn = document.getElementById("resultBtn");
+if (resultBtn) {
+  resultBtn.addEventListener("click", () => {
+    window.location.href = "../result/result.html";
+  });
+}
   const buttons = document.querySelectorAll(".btn");
 
 buttons.forEach((button, index) => {
@@ -114,4 +127,3 @@ document.querySelector(".progress-bar").style.width =
 `${((quizIndex + 1) / quizData.length) * 100}%`;
 updateButtons()
 }
-

@@ -147,3 +147,7 @@ body {
   background: red !important;
   color: white !important;
 }
+
+.hidden {
+    display: none;
+}
