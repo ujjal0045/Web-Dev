@@ -66,3 +66,32 @@ button a{
   font-size:1rem;
   font-weight:bold;
 }
+
+/*Responsive design*/
+@media (max-width:600px){
+
+    .result-container{
+        width:90%;
+        margin:50px auto;
+        padding:20px;
+    }
+
+    .result-container h1{
+        font-size:28px;
+    }
+
+    .result-container h2{
+        font-size:22px;
+        line-height:1.5;
+    }
+
+    .result-container h3{
+        font-size:20px;
+    }
+
+    .restartbtn{
+        width:100%;
+        padding:14px;
+        font-size:18px;
+    }
+}

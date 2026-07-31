@@ -95,10 +95,10 @@ function displayQuestion(){
     
     <p class="quiz-question">${question.question}</p>
     <div class="option-container">
-      <button class="btn option1">${question.options[0]}</button>
-      <button class="btn option2">${question.options[1]}</button>
-      <button class="btn option3">${question.options[2]}</button>
-      <button class="btn option4">${question.options[3]}</button>
+      <button class="btn option">${question.options[0]}</button>
+      <button class="btn option">${question.options[1]}</button>
+      <button class="btn option">${question.options[2]}</button>
+      <button class="btn option">${question.options[3]}</button>
     </div>
     <div class="swap-questions">
       <button class="Butn previsiousQuestion" onclick="displayPreviousQuestion()">Previous</button>

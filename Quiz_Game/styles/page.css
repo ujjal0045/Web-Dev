@@ -94,7 +94,7 @@ body {
   justify-content: space-between;
   padding: 25px;
 }
-.nextQuestion{
+.nextQuestion, #resultBtn{
   background: blue !important;
   color: white !important;
 }
@@ -150,4 +150,43 @@ body {
 
 .hidden {
     display: none;
+}
+
+
+/* Phone Screen */
+@media (max-width: 600px) {
+
+    .quiz-container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .quiz-question {
+        font-size: 20px;
+    }
+
+    .option-container{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    align-items:stretch;
+}
+
+.option{
+  display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    width:100%;
+    min-height: 70%;
+}
+
+    .btn {
+      text-align: center;
+    }
+    button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
 }
