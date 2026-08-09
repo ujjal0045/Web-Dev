@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+        <!-- Top Badge -->
+        <div class="badge">
+            <i class="fa-solid fa-cloud-sun"></i>
+            <span>LIVE ATMOSPHERE</span>
+        </div>
+
+        <!-- Heading -->
+        <section class="hero">
+
+            <h1>Weather App</h1>
+
+            <p>
+                A living view of the weather, tuned for the moment.
+            </p>
+
+        </section>
+
+        <!-- Weather Card -->
+        <section class="weather-card">
+
+            <div class="weather-box">
+
+                <h2>Current conditions</h2>
+
+                <p class="subtitle">
+                    Search any city to surface live weather, at a glance.
+                </p>
+
+                <!-- Search Area -->
+                <div class="search-area">
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            id="cityInput"
+                            placeholder="Enter city name">
+
+                    </div>
+
+                    <button id="searchBtn">
+                        Search
+                    </button>
+
+                </div>
+
+                <!-- Weather Result -->
+                <div class="weather-result"></div>
+
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer>
+
+            <i class="fa-solid fa-cloud"></i>
+
+            <span>
+                A weather concept for the in-between moments
+            </span>
+
+        </footer>
+
+    </main>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>
