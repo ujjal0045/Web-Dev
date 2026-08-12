@@ -512,22 +512,12 @@ body {
 
 @media (max-width: 600px) {
 
-    .navbar {
-        height: auto;
-
-        padding: 15px 5%;
-
-        flex-wrap: wrap;
-
-        gap: 12px;
+    .navbar .nav-links {
+        display: none;
     }
 
-    .nav-links {
-        order: 3;
-
-        width: 100%;
-
-        justify-content: center;
+    .navbar {
+        padding: 12px 20px;
     }
 
     .hero {

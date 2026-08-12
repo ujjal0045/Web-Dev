@@ -1,3 +1,5 @@
+cartItems = JSON.parse(localStorage.getItem("Id")) || [];
+
 // isme url sa ? iska baad ka data liya gya hai
 const params = new URLSearchParams(window.location.search);
 
@@ -12,9 +14,33 @@ console.log(product);
 
 function onLoad(){
   displayProduct();
+  displayCartIcon();
 }
 
 onLoad();
+
+function addToCart(productId) {
+
+    if (!cartItems.includes(productId)) {
+        cartItems.push(productId);
+    }
+
+    localStorage.setItem("Id", JSON.stringify(cartItems));
+
+    displayCartIcon();
+}
+
+function displayCartIcon(){
+  let CartCount = document.querySelector('#cartCount');
+  if(cartItems.length > 0){
+    CartCount.style.visibility = 'visible';
+    CartCount.innerHTML = cartItems.length;
+  }
+  else{
+    CartCount.style.visibility='hidden';
+  }
+}
+
 
 function displayProduct(){
   const productContainer = document.querySelector('.product-page');

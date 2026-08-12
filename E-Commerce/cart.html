@@ -9,6 +9,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../E-Commerce/Style/index.css">
+    <link rel="stylesheet" href="../E-Commerce/Style/cart.css">
 </head>
 
 <body>
@@ -43,7 +44,34 @@
     <!-- ================= HERO SECTION ================= -->
 
     <main class="container">
-      
+
+      <div class="product-container">
+        <div class="heading"><h1>Your cart</h1></div>
+        <div class="result">
+
+            <button class="remove-btn" title="Remove product">
+                &times;
+            </button>
+
+            <div class="image-container">
+                <img src="../E-Commerce/Assets/images/accessory1.jpeg" alt="">
+            </div>
+            <div class="proDetail">
+                <h4 class="product-Name">Classic Black Leather Watch</h4>
+                <h6 class="product-category">Acccessories</h6>
+                <p class="originialPrize"> ₹2499</p>
+            </div>
+        </div>
+      </div>
+      <div class="productDetails">
+        <h3>Order Summary</h3>
+        <p>Product Prize : <span>₹1000</span> </p>
+        <p>Total Discount : <span>₹500</span> </p>
+        <p>Delivery Fee: Free</p>
+        <hr>
+        <p>Final Prize: <span>₹500</span></p>
+        <button>Proceed to Checkout</button>
+      </div>
     </main>
 
 
@@ -83,7 +111,8 @@
     <!-- ================= JAVASCRIPT ================= -->
 
     <script src="./js/data.js"></script>
-<script src="./js/app.js"></script>
+    <script src="./JS/cart.js"></script>
+    
 
 </body>
 
