@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Password Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="password-box">
+
+            <!-- Header -->
+            <div class="header">
+                <h1>Password Generator</h1>
+                <p>Create a strong and secure password</p>
+            </div>
+
+            <!-- Password Display -->
+            <div class="password-display">
+                <span id="password"></span>
+
+                <button id="copy-btn" type="button">
+                    📋
+                </button>
+            </div>
+
+            <!-- Password Length -->
+            <div class="length-section">
+
+                <div class="section-header">
+                    <label for="length">Password Length</label>
+                    <span id="length-value">12</span>
+                </div>
+
+                <input 
+                    type="range" 
+                    id="length"
+                    min="6"
+                    max="30"
+                    value="12"
+                >
+
+            </div>
+
+            <!-- Character Options -->
+            <div class="options-section">
+
+                <h3>Character Options</h3>
+
+                <label class="option">
+                    <span>Uppercase Letters (A-Z)</span>
+                    <input type="checkbox" id="uppercase" checked>
+                </label>
+
+                <label class="option">
+                    <span>Lowercase Letters (a-z)</span>
+                    <input type="checkbox" id="lowercase" checked>
+                </label>
+
+                <label class="option">
+                    <span>Numbers (0-9)</span>
+                    <input type="checkbox" id="numbers" checked>
+                </label>
+
+                <label class="option">
+                    <span>Symbols (!@#$%)</span>
+                    <input type="checkbox" id="symbols" checked>
+                </label>
+
+            </div>
+
+            <!-- Password Strength -->
+            <div class="strength-section">
+
+                <div class="section-header">
+                    <h3>Password Strength</h3>
+                    <span id="strength-text"></span>
+                </div>
+
+                <div class="strength-bars">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <!-- Generate Button -->
+            <button id="generate-btn" class="generate-btn">
+                Generate Password
+                <span>↻</span>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="copy-popup" id="copy-popup">
+    ✓ Password copied successfully!
+  </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
